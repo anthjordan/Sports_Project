@@ -4,7 +4,8 @@ import pandas as pd
 
 # Initialize browser
 browser = Browser('chrome', executable_path='C:\\chromedriver_win32\\chromedriver.exe', headless=False)
-# List of teams
+
+# List of NFL teams
 teams = ['arizona-cardinals', 'atlanta-falcons', 'baltimore-ravens', 'buffalo-bills', 
          'carolina-panthers', 'chicago-bears', 'cincinnati-bengals', 'cleveland-browns', 
          'dallas-cowboys', 'denver-broncos', 'detroit-lions', 'green-bay-packers', 
@@ -13,15 +14,11 @@ teams = ['arizona-cardinals', 'atlanta-falcons', 'baltimore-ravens', 'buffalo-bi
          'minnesota-vikings', 'new-england-patriots', 'new-orleans-saints', 'new-york-giants', 
          'new-york-jets', 'philadelphia-eagles', 'pittsburgh-steelers', 'san-francisco-49ers', 
          'seattle-seahawks', 'tampa-bay-buccaneers', 'tennessee-titans', 'washington-football-team']
-
-# List to store data
 all_data = []
-
-# Iterate over the years 2011 to 2023
-for year in range(2011, 2024):
+for year in range(2020, 2024):
     for team in teams:
         # Visit the page
-        url = f"https://www.spotrac.com/nfl/{team}/cap/{year}/"
+        url = f"https://www.spotrac.com/nfl/{team}/cap/{year}"
         browser.visit(url)
 
         # Create BeautifulSoup object; parse with 'html.parser'
@@ -41,42 +38,44 @@ for year in range(2011, 2024):
                 break
 
         # Retrieve all elements that contain player salary information
-        if active_table is not None:
-            players = active_table.find_all('tr')
+        players = active_table.find_all('tr')
 
         # Iterate through each player
-        for i, player in enumerate(players):
+        for player in players:
+            # Use Beautiful Soup's find() method to navigate and retrieve attributes
             name_tag = player.find('td', class_='player')
             if name_tag is not None:
                 a_tag = name_tag.find('a')
                 if a_tag is not None:
                     name = a_tag.text
-                    position = player.find('td', class_='center small').text
-                    cap_hit_tag = player.find('td', class_='right result')
-                    if cap_hit_tag is not None:
-                        cap_hit = cap_hit_tag.text.strip()
-                    else:
-                        cap_hit = None
-                    cap_percentage_tag = player.find_all('td', class_='center')
-                    if cap_percentage_tag and len(cap_percentage_tag) > 1:
-                        cap_percentage = cap_percentage_tag[1].text.strip()
-                    else:
-                        cap_percentage = None
+                    # Find all td tags within the player's row
+                    all_tds = player.find_all('td')
+                    if len(all_tds) >= 12:  # There should be at least 12 td tags if the player row is valid
+                        position = all_tds[1].find('span').text
+                        cap_hit = all_tds[2].find('span').text.strip()
+                        base_salary = all_tds[3].find('span').text.strip()
+                        cap_percentage = all_tds[11].text.strip()
+                        
+                        player_data = {
+                            "year": year,
+                            "team": team,
+                            "name": name,
+                            "position": position,
+                            "cap_hit": cap_hit,
+                            "base_salary": base_salary,
+                            "cap_percentage": cap_percentage
+                        }
+                        all_data.append(player_data)
 
-                    player_data = {"index": i, "year": year, "team": team, "name": name, 
-                                   "position": position, "cap_hit": cap_hit, "cap_%": cap_percentage}
-
-                    all_data.append(player_data)
-
-# Convert the list of dictionaries to a dataframe
+# Convert to a DataFrame and export to a csv file
 df = pd.DataFrame(all_data)
 
-# Remove the '$' and ',' characters from the money columns and convert them to float
-for column in ["cap_hit"]:
-    df[column] = df[column].replace({'\$': '', ',': ''}, regex=True).astype(float)
+# Reset the index to start from 1 and name the index column as "index"
+df.index = df.index + 1
+df.index.name = "index"
 
-# Save the dataframe to a csv file
-df.to_csv("nfl_salary_data.csv", index=False)
+# Write DataFrame to CSV file
+df.to_csv("nfl_salaries.csv")
 
 # Close the browser
 browser.quit()

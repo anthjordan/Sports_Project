@@ -1,7 +1,7 @@
 import time
 import pandas as pd
 from bs4 import BeautifulSoup
-from selenium import webdriver
+from selenium import webdriver #make sure you have the Selenium library installed. You can install it using pip: pip install selenium
 from selenium.webdriver.chrome.service import Service
 
 def parse_win_loss_record(record):
@@ -84,10 +84,10 @@ def scrape_win_loss_records():
     data = list(zip(years_list, team_names, wins, losses, ties))
 
     # Create a Pandas DataFrame
-    df = pd.DataFrame(data, columns=['Year', 'Team', 'Win', 'Loss', 'Tie'])
+    df_nfl_score = pd.DataFrame(data, columns=['Year', 'Team', 'Win', 'Loss', 'Tie'])
 
     # Save the data to a CSV file
-    df.to_csv('nfl_win_loss_records_2019_to_2022.csv', index=False, encoding='utf-8')
+    df_nfl_score.to_csv('nfl_win_loss_records_2019_to_2022.csv', index=False, encoding='utf-8')
 
 # Example usage:
 scrape_win_loss_records()
