@@ -1,0 +1,64 @@
+ul.navBar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+li.navItem {
+  border-right: 1px solid #bbb;
+  float: left;
+}
+li.navItem:last-child {
+  border-right: none;
+}
+li.navItem a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+
+}
+
+li.navItem a:hover {
+  background-color: #111;
+}
+
+.activeNav {
+  background-color: #3b47e7;
+}
+
+body {
+  background-color: #1b630b;
+}
+
+.image {
+  background-image: url(../img/football1.jpg);
+  background-size: 100%;
+  background-position: 25%;
+  background-repeat: no-repeat;
+  height: 400px;
+}
+
+.column {
+  flex: 50%;
+  padding: 0;
+  background-color: seashell;
+}
+
+.intro {
+  display: flex;
+}
+
+.textbox {
+  width: 50%; 
+  align-content: center;
+  top: 33%;
+  margin: auto;
+  position: relative;
+}
