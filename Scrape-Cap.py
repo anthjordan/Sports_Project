@@ -15,7 +15,7 @@ teams = ['arizona-cardinals', 'atlanta-falcons', 'baltimore-ravens', 'buffalo-bi
          'new-york-jets', 'philadelphia-eagles', 'pittsburgh-steelers', 'san-francisco-49ers', 
          'seattle-seahawks', 'tampa-bay-buccaneers', 'tennessee-titans', 'washington-football-team']
 all_data = []
-for year in range(2020, 2024):
+for year in range(2011, 2023):
     for team in teams:
         # Visit the page
         url = f"https://www.spotrac.com/nfl/{team}/cap/{year}"
@@ -53,7 +53,6 @@ for year in range(2020, 2024):
                     if len(all_tds) >= 12:  # There should be at least 12 td tags if the player row is valid
                         position = all_tds[1].find('span').text
                         cap_hit = all_tds[2].find('span').text.strip()
-                        base_salary = all_tds[3].find('span').text.strip()
                         cap_percentage = all_tds[11].text.strip()
                         
                         player_data = {
@@ -62,7 +61,6 @@ for year in range(2020, 2024):
                             "name": name,
                             "position": position,
                             "cap_hit": cap_hit,
-                            "base_salary": base_salary,
                             "cap_percentage": cap_percentage
                         }
                         all_data.append(player_data)
