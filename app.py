@@ -21,27 +21,33 @@ app = Flask(__name__)
 #################################################
 
 @app.route("/")
-def dashboard():
+def home():
     return (
         render_template('index.html')
     )
 
-@app.route('/nav_item_one')
-def nav_item_one():
-    return (
-        render_template('danbinhchart.html')
-    )
-
-@app.route('/nav_item_two')
-def nav_item_two(): 
+@app.route('/salaries')
+def salaries():
     return (
         render_template('andrewchart.html')
     )
 
-@app.route('/nav_item_three')
-def nav_item_three(): 
+@app.route('/team_spending_and_success')
+def spending_success(): 
     return (
-        render_template('datatech.html')
+        render_template('binhchart.html')
+    )
+
+@app.route('/spending_analysis')
+def analysis(): 
+    return (
+        render_template('analysis.html')
+    )
+
+@app.route('/newest_millionaires')
+def future(): 
+    return (
+        render_template('future.html')
     )
 
 @app.route("/static/data/<path:path>")

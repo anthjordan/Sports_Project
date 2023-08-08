@@ -41,16 +41,17 @@
     <div class="column image col-lg-5 col-xs-12" style=""></div>
   </div> 
   <ul class="navBar">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="danbinhchart.html">Dan & Binh Chart</a></li>
-    <li><a href="andrewchart.html">Andrew Chart</a></li>
-    <li><a href="datatech.html">Data and Tech Involved</a></li>
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('salaries') }}">Team Salaries by Year</a></li>
+    <li><a href="{{ url_for('spending_success') }}">Team Spending and Wins by Year</a></li>
+    <li><a href="{{ url_for('analysis') }}">Analysis and Conclusions</a></li>
+    <li><a href="{{ url_for('future') }}">The NFL's Newest Millionaires</a></li>
   </ul> 
 
   <div>
   <div class="section" style="text-align: left;">
-    <h2>Dan and Binh's Charts</h2>
-    <p>Space to display various charts and graphs that show correlations between wins and losses vs salary cap allocation.</p>
+    <h2>Newest Millionaires</h2>
+    <p>How NFL spending will affect future team success</p>
 </div>
 
   <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
