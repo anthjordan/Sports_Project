@@ -2,62 +2,117 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Team Analysis over Years</title>
 
-  <!-- d3 -->
-  <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Highcharts library -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- Optional: Include additional Highcharts modules if required -->
 
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  
-  <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-  crossorigin=""/>
-  
-  <!-- Leaflet JavaScript code -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-  crossorigin=""></script>
+    <!-- d3 library -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  
-  <!-- Local CSS -->
-  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
-  <title>Sports Project</title>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
 </head>
 
 <body>
-  <div class="row" style="background-color: seashell;">
-    <div class="column col-lg-7 col-xs-12" style="">
-      <div class="textbox" style = "text-align: center;">
-        <h1>Sports Project</h1>
+    <div class="row" style="background-color: seashell;">
+        <div class="column col-lg-7 col-xs-12" style="">
+            <div class="textbox" style="text-align: center;">
+                <h1>Sports Project</h1>
 
-        <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
-      </div>
+                <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+            </div>
+        </div>
+        <div class="column image col-lg-5 col-xs-12" style=""></div>
     </div>
-    <div class="column image col-lg-5 col-xs-12" style=""></div>
-  </div> 
-  <ul class="navBar">
-    <li><a href="{{ url_for('home') }}">Home</a></li>
-    <li><a href="{{ url_for('salaries') }}">Team Salaries by Year</a></li>
-    <li><a href="{{ url_for('spending_success') }}">Team Spending and Wins by Year</a></li>
-    <li><a href="{{ url_for('analysis') }}">Analysis and Conclusions</a></li>
-    <li><a href="{{ url_for('future') }}">The NFL's Newest Millionaires</a></li>
-  </ul> 
+    <ul class="navBar">
+        <li><a href="{{ url_for('home') }}">Home</a></li>
+        <li><a href="{{ url_for('salaries') }}">Team Salaries by Year</a></li>
+        <li><a href="{{ url_for('spending_success') }}">Team Spending and Wins by Year</a></li>
+        <li><a href="{{ url_for('analysis') }}">Analysis and Conclusions</a></li>
+        <li><a href="{{ url_for('future') }}">The NFL's Newest Millionaires</a></li>
+    </ul>
 
-  <div>
-  <div class="section" style="text-align: left;">
-    <h1>Spending and Success</h1>
-    <p>Bindh, add your dashboard here!</p>
-</div>
+    <div class="container mt-4">
+        <h1>Team Analysis over Years</h1>
 
-  <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
-  <script type="text/javascript" src="{{url_for('static', filename='js/events.js')}}"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+        <label for="startYearDropdown">Select Start Year:</label>
+        <select id="startYearDropdown">
+        </select>
+
+        <label for="endYearDropdown">Select End Year:</label>
+        <select id="endYearDropdown">
+        </select>
+
+        <div id="teamSelectDiv">
+          <h3>Select Teams:</h3>
+          <form id="teamSelectForm">
+              <table>
+                  <tr>
+                      <td><label><input type="checkbox" name="team" value="Arizona"> Arizona</label></td>
+                      <td><label><input type="checkbox" name="team" value="Atlanta"> Atlanta</label></td>
+                      <td><label><input type="checkbox" name="team" value="Baltimore"> Baltimore</label></td>
+                      <td><label><input type="checkbox" name="team" value="Buffalo"> Buffalo</label></td>
+                      <td><label><input type="checkbox" name="team" value="Carolina"> Carolina</label></td>
+                      <td><label><input type="checkbox" name="team" value="Chicago"> Chicago</label></td>
+                      <td><label><input type="checkbox" name="team" value="Cincinnati"> Cincinnati</label></td>
+                      <td><label><input type="checkbox" name="team" value="Cleveland"> Cleveland</label></td>
+                  </tr>
+                  <tr>
+                      <td><label><input type="checkbox" name="team" value="Dallas"> Dallas</label></td>
+                      <td><label><input type="checkbox" name="team" value="Denver"> Denver</label></td>
+                      <td><label><input type="checkbox" name="team" value="Detroit"> Detroit</label></td>
+                      <td><label><input type="checkbox" name="team" value="Green Bay"> Green Bay</label></td>
+                      <td><label><input type="checkbox" name="team" value="Houston"> Houston</label></td>
+                      <td><label><input type="checkbox" name="team" value="Indianapolis"> Indianapolis</label></td>
+                      <td><label><input type="checkbox" name="team" value="Jacksonville"> Jacksonville</label></td>
+                      <td><label><input type="checkbox" name="team" value="Kansas City"> Kansas City</label></td>
+                  </tr>
+                  <tr>
+                      <td><label><input type="checkbox" name="team" value="LA Chargers"> LA Chargers</label></td>
+                      <td><label><input type="checkbox" name="team" value="LA Rams"> LA Rams</label></td>
+                      <td><label><input type="checkbox" name="team" value="Las Vegas"> Las Vegas</label></td>
+                      <td><label><input type="checkbox" name="team" value="Miami"> Miami</label></td>
+                      <td><label><input type="checkbox" name="team" value="Minnesota"> Minnesota</label></td>
+                      <td><label><input type="checkbox" name="team" value="New England"> New England</label></td>
+                      <td><label><input type="checkbox" name="team" value="New Orleans"> New Orleans</label></td>
+                      <td><label><input type="checkbox" name="team" value="NY Giants"> NY Giants</label></td>
+                  </tr>
+                  <tr>
+                      <td><label><input type="checkbox" name="team" value="NY Jets"> NY Jets</label></td>
+                      <td><label><input type="checkbox" name="team" value="Philadelphia"> Philadelphia</label></td>
+                      <td><label><input type="checkbox" name="team" value="Pittsburgh"> Pittsburgh</label></td>
+                      <td><label><input type="checkbox" name="team" value="San Francisco"> San Francisco</label></td>
+                      <td><label><input type="checkbox" name="team" value="Seattle"> Seattle</label></td>
+                      <td><label><input type="checkbox" name="team" value="Tampa Bay"> Tampa Bay</label></td>
+                      <td><label><input type="checkbox" name="team" value="Tennessee"> Tennessee</label></td>
+                      <td><label><input type="checkbox" name="team" value="Washington"> Washington</label></td>
+                  </tr>
+              </table>
+          </form>
+      </div>
+
+        <button id="updateButtonId">Update Charts</button>
+
+        <!-- Here are the containers for the Highcharts visualizations -->
+        <div id="salaryChart" style="height: 400px;"></div>
+        <div id="winLossChart" style="height: 400px;"></div>
+        <div id="salaryWinsScatterChart" style="height: 400px;"></div>
+        <div id="playoffChart" style="height: 400px;"></div>
+        <div id="salaryWinsComboChart" style="height: 400px;"></div>
+    </div>
+
+    <!-- Including the app.js script after d3 -->
+    <script src="{{ url_for('static', filename='js/bd.js') }}"></script>
+
 </body>
 
 </html>
