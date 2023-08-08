@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NFL Stats</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</head>
+<body>
+    <h1>NFL Stats</h1>
+
+    <div style="text-align: center;">
+      <label for="yearStart">Start Year:</label>
+      <input type="number" id="yearStart" name="yearStart">
+      <label for="yearEnd">End Year:</label>
+      <input type="number" id="yearEnd" name="yearEnd">
+      <label for="teamDropdown">Team:</label>
+      <select id="teamDropdown"></select>
+      <button id="submitYearRange">Submit</button>
+    </div>
+
+    <div id="winningChart"></div>
+    <div id="salaryChart"></div>
+    <div id="winningTrendChart"></div>
+    <div id="salaryTrendChart"></div>
+    <div id="correlationChart"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

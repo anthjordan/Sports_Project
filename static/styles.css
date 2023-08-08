@@ -1,0 +1,77 @@
+body {
+  background-color: #F5F5DC;
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+header {
+  padding: 20px;
+  background-color: #005A9C;
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  padding: 20px;
+}
+
+select, input[type="number"] {
+  margin: 20px;
+  padding: 10px;
+  font-size: 18px;
+  width: 200px; /* Adjust this as per your preference */
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  margin: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+table {
+  margin: 20px auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+
+#team-logo {
+  width: 100px;
+  height: 100px;
+}
+
+.chart-title {
+  font-size: 2em;   /* Adjust this as per your preference */
+  text-align: center;
+  padding: 20px;
+}
+
+#winningChart, #salaryChart {
+  width: 90%;
+  height: 500px; /* Adjust this as per your preference */
+  margin: 20px auto;
+}
+#correlationChart {
+  width: 90%;
+  height: 500px;
+  margin: 20px auto;
+}
