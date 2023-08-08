@@ -41,23 +41,22 @@
     <div class="column image col-lg-5 col-xs-12" style=""></div>
   </div> 
   <ul class="navBar">
-    <li class="navItem"><a href="">Optional Nav Item One</a></li>
-    <li class="navItem"><a href="">Optional Nav Item Two</a></li>
-
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('salaries') }}">Team Salaries by Year</a></li>
+    <li><a href="{{ url_for('spending_success') }}">Team Spending and Wins by Year</a></li>
+    <li><a href="{{ url_for('analysis') }}">Analysis and Conclusions</a></li>
+    <li><a href="{{ url_for('future') }}">The NFL's Newest Millionaires</a></li>
   </ul> 
   
-  <div class="main row" style="background-color: seashell;">
-    <div class = "column" style="flex:34%;padding:1rem 1rem;">
-      <label for="selYear">Select a Year: </label>
-      <select id="selYear">
-      </select>
-      <label for="selTeam">Select a Team: </label>
-      <select id="selTeam">
-      </select>
-    </div>
-    <div id="chart" class = "column" style="flex:66%;padding:1rem 1rem;">
-    </div>
-  </div>
+  <div>
+  <div class="section" style="text-align: left;">
+    <h1>About this project</h1>
+    <p>This project explores the correlation of NFL (National Football League) team success based on how they choose to allocate their yearly player budget, aka salary cap.</p>
+    <p>Will a team be more successful by having 1 or 2 very highly paid, highly skilled players on the roster taking up large portions of salary cap?</p>
+    <p>Is it better to try and spread salary cap more evenly among players?</p>
+    <p>What about offense and defense...? Is it better to invest more heavily in one over the other?</p>
+    <p>Start answering these question by clicking on ______ above.</p>
+</div>
 
   <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
   <script type="text/javascript" src="{{url_for('static', filename='js/events.js')}}"></script>

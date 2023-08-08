@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- d3 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+  
+  <!-- Leaflet JavaScript code -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  
+  <!-- Local CSS -->
+  <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+  <title>Sports Project</title>
+</head>
+
+<body>
+  <div class="row" style="background-color: seashell;">
+    <div class="column col-lg-7 col-xs-12" style="">
+      <div class="textbox" style = "text-align: center;">
+        <h1>Sports Project</h1>
+
+        <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+      </div>
+    </div>
+    <div class="column image col-lg-5 col-xs-12" style=""></div>
+  </div> 
+  <ul class="navBar">
+    <li class="navItem"><a href="">Optional Nav Item One</a></li>
+    <li class="navItem"><a href="">Optional Nav Item Two</a></li>
+
+  </ul> 
+  
+  <div class="main row" style="background-color: seashell;">
+    <div class = "column" style="flex:34%;padding:1rem 1rem;">
+      <label for="selYear">Select a Year: </label>
+      <select id="selYear">
+      </select>
+      <label for="selTeam">Select a Team: </label>
+      <select id="selTeam">
+      </select>
+    </div>
+    <div id="chart" class = "column" style="flex:66%;padding:1rem 1rem;">
+    </div>
+  </div>
+
+  <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
+  <script type="text/javascript" src="{{url_for('static', filename='js/events.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+
+</html>
