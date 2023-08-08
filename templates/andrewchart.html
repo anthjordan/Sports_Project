@@ -30,16 +30,16 @@
 </head>
 
 <body>
-  <div class="row" style="background-color: seashell;">
-    <div class="column col-lg-7 col-xs-12" style="">
-      <div class="textbox" style = "text-align: center;">
-        <h1>Sports Project</h1>
-
-        <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+    <div class="row" style="background-color: seashell;">
+      <div class="column col-lg-7 col-xs-12" style="">
+        <div class="textbox" style = "text-align: center;">
+          <h1>Sports Project</h1>
+  
+          <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+        </div>
       </div>
-    </div>
-    <div class="column image col-lg-5 col-xs-12" style=""></div>
-  </div> 
+      <div class="column image col-lg-5 col-xs-12" style=""></div>
+    </div> 
   <ul class="navBar">
     <li><a href="index.html">Home</a></li>
     <li><a href="danbinhchart.html">Dan & Binh Chart</a></li>
@@ -49,13 +49,22 @@
 
   <div>
   <div class="section" style="text-align: left;">
-    <h2>About this project</h2>
-    <p>This project explores the correlation of NFL (National Football League) team success based on how they choose to allocate their yearly player budget, aka salary cap.</p>
-    <p>Will a team be more successful by having 1 or 2 very highly paid, highly skilled players on the roster taking up large portions of salary cap?</p>
-    <p>Is it better to try and spread salary cap more evenly among players?</p>
-    <p>What about offense and defense...? Is it better to invest more heavily in one over the other?</p>
-    <p>Start answering these question by clicking on ______ above.</p>
+    <h2>Andrew's Pie Chart</h2>
+    <p>Choose a year and team in the dropdown menus to see a pie chart of their salary cap distribution, their regular season win/loss record, and if they made it to the post season.</p>
 </div>
+
+<div class="main row" style="background-color: seashell;">
+    <div class = "column" style="flex:34%;padding:1rem 1rem;">
+      <label for="selYear">Select a Year: </label>
+      <select id="selYear">
+      </select>
+      <label for="selTeam">Select a Team: </label>
+      <select id="selTeam">
+      </select>
+    </div>
+    <div id="chart" class = "column" style="flex:66%;padding:1rem 1rem;">
+    </div>
+  </div>
 
   <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
   <script type="text/javascript" src="{{url_for('static', filename='js/events.js')}}"></script>
