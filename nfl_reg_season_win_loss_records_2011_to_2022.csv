@@ -1,0 +1,385 @@
+Year,Team,Win,Loss,Tie
+2011,Green Bay,15,1,0
+2011,San Francisco,13,3,0
+2011,New England,13,3,0
+2011,New Orleans,13,3,0
+2011,Baltimore,12,4,0
+2011,Pittsburgh,12,4,0
+2011,Atlanta,10,6,0
+2011,Detroit,10,6,0
+2011,Houston,10,6,0
+2011,NY Giants,9,7,0
+2011,Cincinnati,9,7,0
+2011,Tennessee,9,7,0
+2011,Denver,8,8,0
+2011,Las Vegas,8,8,0
+2011,LA Chargers,8,8,0
+2011,NY Jets,8,8,0
+2011,Dallas,8,8,0
+2011,Arizona,8,8,0
+2011,Philadelphia,8,8,0
+2011,Chicago,8,8,0
+2011,Kansas City,7,9,0
+2011,Seattle,7,9,0
+2011,Carolina,6,10,0
+2011,Miami,6,10,0
+2011,Buffalo,6,10,0
+2011,Washington,5,11,0
+2011,Jacksonville,5,11,0
+2011,Tampa Bay,4,12,0
+2011,Cleveland,4,12,0
+2011,Minnesota,3,13,0
+2011,LA Rams,2,14,0
+2011,Indianapolis,2,14,0
+2012,Atlanta,13,3,0
+2012,Denver,13,3,0
+2012,New England,12,4,0
+2012,Houston,12,4,0
+2012,San Francisco,11,4,1
+2012,Seattle,11,5,0
+2012,Green Bay,11,5,0
+2012,Indianapolis,11,5,0
+2012,Washington,10,6,0
+2012,Minnesota,10,6,0
+2012,Baltimore,10,6,0
+2012,Chicago,10,6,0
+2012,Cincinnati,10,6,0
+2012,NY Giants,9,7,0
+2012,Dallas,8,8,0
+2012,Pittsburgh,8,8,0
+2012,LA Rams,7,8,1
+2012,Tampa Bay,7,9,0
+2012,LA Chargers,7,9,0
+2012,Miami,7,9,0
+2012,Carolina,7,9,0
+2012,New Orleans,7,9,0
+2012,NY Jets,6,10,0
+2012,Tennessee,6,10,0
+2012,Buffalo,6,10,0
+2012,Arizona,5,11,0
+2012,Cleveland,5,11,0
+2012,Philadelphia,4,12,0
+2012,Detroit,4,12,0
+2012,Las Vegas,4,12,0
+2012,Jacksonville,2,14,0
+2012,Kansas City,2,14,0
+2013,Denver,13,3,0
+2013,Seattle,13,3,0
+2013,San Francisco,12,4,0
+2013,New England,12,4,0
+2013,Carolina,12,4,0
+2013,Kansas City,11,5,0
+2013,Indianapolis,11,5,0
+2013,Cincinnati,11,5,0
+2013,New Orleans,11,5,0
+2013,Arizona,10,6,0
+2013,Philadelphia,10,6,0
+2013,LA Chargers,9,7,0
+2013,Green Bay,8,7,1
+2013,Miami,8,8,0
+2013,NY Jets,8,8,0
+2013,Dallas,8,8,0
+2013,Baltimore,8,8,0
+2013,Pittsburgh,8,8,0
+2013,Chicago,8,8,0
+2013,LA Rams,7,9,0
+2013,NY Giants,7,9,0
+2013,Tennessee,7,9,0
+2013,Detroit,7,9,0
+2013,Buffalo,6,10,0
+2013,Minnesota,5,10,1
+2013,Las Vegas,4,12,0
+2013,Cleveland,4,12,0
+2013,Jacksonville,4,12,0
+2013,Tampa Bay,4,12,0
+2013,Atlanta,4,12,0
+2013,Washington,3,13,0
+2013,Houston,2,14,0
+2014,Seattle,12,4,0
+2014,Denver,12,4,0
+2014,New England,12,4,0
+2014,Dallas,12,4,0
+2014,Green Bay,12,4,0
+2014,Detroit,11,5,0
+2014,Indianapolis,11,5,0
+2014,Arizona,11,5,0
+2014,Pittsburgh,11,5,0
+2014,Cincinnati,10,5,1
+2014,Philadelphia,10,6,0
+2014,Baltimore,10,6,0
+2014,Houston,9,7,0
+2014,Kansas City,9,7,0
+2014,LA Chargers,9,7,0
+2014,Buffalo,9,7,0
+2014,Miami,8,8,0
+2014,San Francisco,8,8,0
+2014,Carolina,7,8,1
+2014,Cleveland,7,9,0
+2014,Minnesota,7,9,0
+2014,New Orleans,7,9,0
+2014,Atlanta,6,10,0
+2014,LA Rams,6,10,0
+2014,NY Giants,6,10,0
+2014,Chicago,5,11,0
+2014,NY Jets,4,12,0
+2014,Washington,4,12,0
+2014,Jacksonville,3,13,0
+2014,Las Vegas,3,13,0
+2014,Tampa Bay,2,14,0
+2014,Tennessee,2,14,0
+2015,Carolina,15,1,0
+2015,Arizona,13,3,0
+2015,Denver,12,4,0
+2015,New England,12,4,0
+2015,Cincinnati,12,4,0
+2015,Kansas City,11,5,0
+2015,Minnesota,11,5,0
+2015,Seattle,10,6,0
+2015,NY Jets,10,6,0
+2015,Pittsburgh,10,6,0
+2015,Green Bay,10,6,0
+2015,Washington,9,7,0
+2015,Houston,9,7,0
+2015,Atlanta,8,8,0
+2015,Buffalo,8,8,0
+2015,Indianapolis,8,8,0
+2015,LA Rams,7,9,0
+2015,Las Vegas,7,9,0
+2015,Philadelphia,7,9,0
+2015,Detroit,7,9,0
+2015,New Orleans,7,9,0
+2015,Miami,6,10,0
+2015,NY Giants,6,10,0
+2015,Chicago,6,10,0
+2015,Tampa Bay,6,10,0
+2015,San Francisco,5,11,0
+2015,Baltimore,5,11,0
+2015,Jacksonville,5,11,0
+2015,LA Chargers,4,12,0
+2015,Dallas,4,12,0
+2015,Cleveland,3,13,0
+2015,Tennessee,3,13,0
+2016,New England,14,2,0
+2016,Dallas,13,3,0
+2016,Las Vegas,12,4,0
+2016,Kansas City,12,4,0
+2016,NY Giants,11,5,0
+2016,Atlanta,11,5,0
+2016,Pittsburgh,11,5,0
+2016,Seattle,10,5,1
+2016,Green Bay,10,6,0
+2016,Miami,10,6,0
+2016,Tampa Bay,9,7,0
+2016,Detroit,9,7,0
+2016,Tennessee,9,7,0
+2016,Denver,9,7,0
+2016,Houston,9,7,0
+2016,Washington,8,7,1
+2016,Baltimore,8,8,0
+2016,Minnesota,8,8,0
+2016,Indianapolis,8,8,0
+2016,Arizona,7,8,1
+2016,New Orleans,7,9,0
+2016,Buffalo,7,9,0
+2016,Philadelphia,7,9,0
+2016,Cincinnati,6,9,1
+2016,Carolina,6,10,0
+2016,LA Chargers,5,11,0
+2016,NY Jets,5,11,0
+2016,LA Rams,4,12,0
+2016,Chicago,3,13,0
+2016,Jacksonville,3,13,0
+2016,San Francisco,2,14,0
+2016,Cleveland,1,15,0
+2017,New England,13,3,0
+2017,Philadelphia,13,3,0
+2017,Pittsburgh,13,3,0
+2017,Minnesota,13,3,0
+2017,LA Rams,11,5,0
+2017,Carolina,11,5,0
+2017,New Orleans,11,5,0
+2017,Kansas City,10,6,0
+2017,Atlanta,10,6,0
+2017,Jacksonville,10,6,0
+2017,LA Chargers,9,7,0
+2017,Seattle,9,7,0
+2017,Buffalo,9,7,0
+2017,Dallas,9,7,0
+2017,Baltimore,9,7,0
+2017,Tennessee,9,7,0
+2017,Detroit,9,7,0
+2017,Arizona,8,8,0
+2017,Washington,7,9,0
+2017,Cincinnati,7,9,0
+2017,Green Bay,7,9,0
+2017,Las Vegas,6,10,0
+2017,Miami,6,10,0
+2017,San Francisco,6,10,0
+2017,Denver,5,11,0
+2017,Tampa Bay,5,11,0
+2017,NY Jets,5,11,0
+2017,Chicago,5,11,0
+2017,Indianapolis,4,12,0
+2017,Houston,4,12,0
+2017,NY Giants,3,13,0
+2017,Cleveland,0,16,0
+2018,New Orleans,13,3,0
+2018,LA Rams,13,3,0
+2018,Kansas City,12,4,0
+2018,LA Chargers,12,4,0
+2018,Chicago,12,4,0
+2018,New England,11,5,0
+2018,Houston,11,5,0
+2018,Seattle,10,6,0
+2018,Indianapolis,10,6,0
+2018,Dallas,10,6,0
+2018,Baltimore,10,6,0
+2018,Pittsburgh,9,6,1
+2018,Philadelphia,9,7,0
+2018,Tennessee,9,7,0
+2018,Minnesota,8,7,1
+2018,Cleveland,7,8,1
+2018,Atlanta,7,9,0
+2018,Miami,7,9,0
+2018,Washington,7,9,0
+2018,Carolina,7,9,0
+2018,Green Bay,6,9,1
+2018,Denver,6,10,0
+2018,Buffalo,6,10,0
+2018,Detroit,6,10,0
+2018,Cincinnati,6,10,0
+2018,Tampa Bay,5,11,0
+2018,NY Giants,5,11,0
+2018,Jacksonville,5,11,0
+2018,Las Vegas,4,12,0
+2018,NY Jets,4,12,0
+2018,San Francisco,4,12,0
+2018,Arizona,3,13,0
+2019,Baltimore,14,2,0
+2019,San Francisco,13,3,0
+2019,New Orleans,13,3,0
+2019,Green Bay,13,3,0
+2019,Kansas City,12,4,0
+2019,New England,12,4,0
+2019,Seattle,11,5,0
+2019,Buffalo,10,6,0
+2019,Minnesota,10,6,0
+2019,Houston,10,6,0
+2019,Philadelphia,9,7,0
+2019,Tennessee,9,7,0
+2019,LA Rams,9,7,0
+2019,Dallas,8,8,0
+2019,Pittsburgh,8,8,0
+2019,Chicago,8,8,0
+2019,Atlanta,7,9,0
+2019,Las Vegas,7,9,0
+2019,NY Jets,7,9,0
+2019,Denver,7,9,0
+2019,Indianapolis,7,9,0
+2019,Tampa Bay,7,9,0
+2019,Cleveland,6,10,0
+2019,Jacksonville,6,10,0
+2019,Arizona,5,10,1
+2019,Miami,5,11,0
+2019,Carolina,5,11,0
+2019,LA Chargers,5,11,0
+2019,NY Giants,4,12,0
+2019,Detroit,3,12,1
+2019,Washington,3,13,0
+2019,Cincinnati,2,14,0
+2020,Kansas City,14,2,0
+2020,Green Bay,13,3,0
+2020,Buffalo,13,3,0
+2020,Pittsburgh,12,4,0
+2020,Seattle,12,4,0
+2020,New Orleans,12,4,0
+2020,Cleveland,11,5,0
+2020,Tampa Bay,11,5,0
+2020,Indianapolis,11,5,0
+2020,Tennessee,11,5,0
+2020,Baltimore,11,5,0
+2020,LA Rams,10,6,0
+2020,Miami,10,6,0
+2020,Chicago,8,8,0
+2020,Las Vegas,8,8,0
+2020,Arizona,8,8,0
+2020,Washington,7,9,0
+2020,Minnesota,7,9,0
+2020,LA Chargers,7,9,0
+2020,New England,7,9,0
+2020,NY Giants,6,10,0
+2020,San Francisco,6,10,0
+2020,Dallas,6,10,0
+2020,Detroit,5,11,0
+2020,Denver,5,11,0
+2020,Carolina,5,11,0
+2020,Philadelphia,4,11,1
+2020,Cincinnati,4,11,1
+2020,Houston,4,12,0
+2020,Atlanta,4,12,0
+2020,NY Jets,2,14,0
+2020,Jacksonville,1,15,0
+2021,Tampa Bay,13,4,0
+2021,Green Bay,13,4,0
+2021,LA Rams,12,5,0
+2021,Kansas City,12,5,0
+2021,Dallas,12,5,0
+2021,Tennessee,12,5,0
+2021,Buffalo,11,6,0
+2021,Arizona,11,6,0
+2021,Las Vegas,10,7,0
+2021,San Francisco,10,7,0
+2021,New England,10,7,0
+2021,Cincinnati,10,7,0
+2021,Pittsburgh,9,7,1
+2021,New Orleans,9,8,0
+2021,LA Chargers,9,8,0
+2021,Indianapolis,9,8,0
+2021,Miami,9,8,0
+2021,Philadelphia,9,8,0
+2021,Cleveland,8,9,0
+2021,Minnesota,8,9,0
+2021,Baltimore,8,9,0
+2021,Atlanta,7,10,0
+2021,Seattle,7,10,0
+2021,Denver,7,10,0
+2021,Washington,7,10,0
+2021,Chicago,6,11,0
+2021,Carolina,5,12,0
+2021,NY Jets,4,13,0
+2021,NY Giants,4,13,0
+2021,Houston,4,13,0
+2021,Detroit,3,13,1
+2021,Jacksonville,3,14,0
+2022,Kansas City,14,3,0
+2022,Philadelphia,14,3,0
+2022,Buffalo,13,3,0
+2022,San Francisco,13,4,0
+2022,Minnesota,13,4,0
+2022,Cincinnati,12,4,0
+2022,Dallas,12,5,0
+2022,Baltimore,10,7,0
+2022,LA Chargers,10,7,0
+2022,NY Giants,9,7,1
+2022,Miami,9,8,0
+2022,Seattle,9,8,0
+2022,Pittsburgh,9,8,0
+2022,Jacksonville,9,8,0
+2022,Detroit,9,8,0
+2022,Washington,8,8,1
+2022,New England,8,9,0
+2022,Green Bay,8,9,0
+2022,Tampa Bay,8,9,0
+2022,Atlanta,7,10,0
+2022,NY Jets,7,10,0
+2022,Carolina,7,10,0
+2022,New Orleans,7,10,0
+2022,Cleveland,7,10,0
+2022,Tennessee,7,10,0
+2022,Las Vegas,6,11,0
+2022,Denver,5,12,0
+2022,LA Rams,5,12,0
+2022,Indianapolis,4,12,1
+2022,Arizona,4,13,0
+2022,Houston,3,13,1
+2022,Chicago,3,14,0
