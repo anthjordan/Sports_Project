@@ -4,9 +4,6 @@ ul.navBar {
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
 }
 
 li.navItem {
@@ -38,11 +35,11 @@ body {
 }
 
 .image {
-  background-image: url(../img/football1.jpg);
+  background-image: url(../../static/img/football1.jpg);
   background-size: 100%;
   background-position: 25%;
   background-repeat: no-repeat;
-  height: 400px;
+  height: 16vw;
   opacity: 85%;
   box-shadow: inset 10px 0px 5px -4px seashell;
 }
@@ -51,15 +48,18 @@ body {
   padding: 0;
 }
 
-.intro {
-  display: flex;
-  background-color: seashell;
+.row {
+  /* display: flex; */
 }
 
 .textbox {
   width: 50%; 
   align-content: center;
-  top: 33%;
   margin: auto;
+  margin-top: 10%;
   position: relative;
+}
+
+.main {
+  margin: 3rem 8rem;
 }

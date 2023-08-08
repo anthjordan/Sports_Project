@@ -3,7 +3,7 @@ import numpy as np
 
 
 from pymongo import MongoClient
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, send_from_directory
 
 
 #################################################
@@ -28,6 +28,12 @@ app = Flask(__name__)
 def dashboard():
     return (
         render_template('index.html')
+    )
+
+@app.route("/static/data/<path:path>")
+def data(path):
+    return(
+        send_from_directory('static/data', path)
     )
 
 if __name__ == '__main__':
