@@ -1,8 +1,10 @@
-d3.json("/static/data/formattedData.json").then((data) => {
+d3.json("/static/data/seasons.json").then((data) => {
   function setYears(){
     //Get Years
-    let years = Object.keys(data[0])
-
+    let years = []
+    for(const obj of data){
+      years.push(Object.keys(obj))
+    }
     //Add Years to options
     for(const year of years){
       let optionYear = d3.select("#selYear").append("option")
@@ -17,7 +19,7 @@ d3.json("/static/data/formattedData.json").then((data) => {
     let selectedYear = d3.select("#selYear").property("value")
 
     //Get teams from respective year
-    let teams = Object.keys(data[0][selectedYear])
+    let teams = Object.keys(data[parseInt(selectedYear) - 2011][selectedYear])
 
     //Remove Teams that were previously set
     d3.select("#selTeam").html("");
@@ -30,17 +32,24 @@ d3.json("/static/data/formattedData.json").then((data) => {
     }
 
   }
+  // function getColors(positions) {
+  //   let colors = []
+  //   for(const position in positions){
+  //     if(position in ["QB", "WR", "RB", "TE", "OL", "C"])
+  //   }
 
+  //   return colors;
+  // }
   function init(){
     let selYear="", selTeam = "";
     selYear = d3.select("#selYear").property("value")
     selTeam = d3.select("#selTeam").property("value")
-    let mapSalary = data[0][selYear][selTeam]['players'].map((item) => item['cap_hit'])
-    let mapName = data[0][selYear][selTeam]['players'].map((item) => item['name'])
-    let byPosition = data[0][selYear][selTeam]['players'].map((item) => item['position'])
+    let mapSalary = data[parseInt(selYear) - 2011][selYear][selTeam]['players'].map((item) => item['cap_hit'])
+    let mapName = data[parseInt(selYear) - 2011][selYear][selTeam]['players'].map((item) => item['name'])
+    let positions = data[parseInt(selYear) - 2011][selYear][selTeam]['players'].map((item) => item['position'])
     
-    console.log(mapName, byPosition)
-    // byPosition = [...new Set(byPosition)]
+    console.log(mapName, positions)
+    let byPosition = [...new Set(positions)]
 
     let toShow = [{
       values: mapSalary,
@@ -48,15 +57,20 @@ d3.json("/static/data/formattedData.json").then((data) => {
       type: 'pie',
       hole: .3,
       title: selTeam,
-      hovertemplate: 'Player Name: %{label} <br>Player Salary: \$%{value} <br>Percentage: %{percent} <br>Position: %{customdata[0]}<extra></extra>',
+      hovertemplate: 'Player Name: %{label} <br>Cap Hit: \$%{value} <br>Percentage: %{percent} <br>Position: %{customdata[0]}<extra></extra>',
       textposition: "inside",
       texttemplate: "%{percent}",
       showlegend: true,
-      customdata: byPosition
+      customdata: positions
     }];
     let layout = {
       height: 700,
-      width: 950
+      width: 950,
+      legend : {
+        "title": {
+          "text": "<b>Player Names: (Highest to Lowest Cap Hit)</b>"
+        }
+      }
     };
     
     Plotly.newPlot("chart", toShow, layout, {responsive: true});
