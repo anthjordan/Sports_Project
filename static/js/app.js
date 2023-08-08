@@ -38,13 +38,21 @@ d3.json("/static/data/formattedData.json").then((data) => {
     let mapSalary = data[0][selYear][selTeam]['players'].map((item) => item['cap_hit'])
     let mapName = data[0][selYear][selTeam]['players'].map((item) => item['name'])
     let byPosition = data[0][selYear][selTeam]['players'].map((item) => item['position'])
-    byPosition = [...new Set(byPosition)]
+    
+    console.log(mapName, byPosition)
+    // byPosition = [...new Set(byPosition)]
 
     let toShow = [{
       values: mapSalary,
       labels: mapName,
       type: 'pie',
       hole: .3,
+      title: selTeam,
+      hovertemplate: 'Player Name: %{label} <br>Player Salary: \$%{value} <br>Percentage: %{percent} <br>Position: %{customdata[0]}<extra></extra>',
+      textposition: "inside",
+      texttemplate: "%{percent}",
+      showlegend: true,
+      customdata: byPosition
     }];
     let layout = {
       height: 700,
