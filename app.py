@@ -12,8 +12,7 @@ from flask import Flask, jsonify, render_template, send_from_directory
 mongo = MongoClient(port=27017)
 
 # Save reference to the table
-# db = mongo['']
-# collection = 
+
 #################################################
 # Flask Setup
 #################################################

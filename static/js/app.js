@@ -1,7 +1,7 @@
 d3.json("/static/data/formattedData.json").then((data) => {
   function setYears(){
     //Get Years
-    let years = Object.keys(data)
+    let years = Object.keys(data[0])
 
     //Add Years to options
     for(const year of years){
@@ -17,7 +17,7 @@ d3.json("/static/data/formattedData.json").then((data) => {
     let selectedYear = d3.select("#selYear").property("value")
 
     //Get teams from respective year
-    let teams = Object.keys(data[selectedYear])
+    let teams = Object.keys(data[0][selectedYear])
 
     //Remove Teams that were previously set
     d3.select("#selTeam").html("");
@@ -35,9 +35,9 @@ d3.json("/static/data/formattedData.json").then((data) => {
     let selYear="", selTeam = "";
     selYear = d3.select("#selYear").property("value")
     selTeam = d3.select("#selTeam").property("value")
-    let mapSalary = data[selYear][selTeam]['players'].map((item) => item['cap_hit'])
-    let mapName = data[selYear][selTeam]['players'].map((item) => item['name'])
-    let byPosition = data[selYear][selTeam]['players'].map((item) => item['position'])
+    let mapSalary = data[0][selYear][selTeam]['players'].map((item) => item['cap_hit'])
+    let mapName = data[0][selYear][selTeam]['players'].map((item) => item['name'])
+    let byPosition = data[0][selYear][selTeam]['players'].map((item) => item['position'])
     byPosition = [...new Set(byPosition)]
 
     let toShow = [{
@@ -51,7 +51,7 @@ d3.json("/static/data/formattedData.json").then((data) => {
       width: 950
     };
     
-    Plotly.newPlot("chart", toShow, layout);
+    Plotly.newPlot("chart", toShow, layout, {responsive: true});
   }
   setYears()
   setTeams()
