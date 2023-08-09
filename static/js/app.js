@@ -17,7 +17,6 @@ d3.json("/static/data/seasons.json").then((data) => {
 
     //Get Year
     let selectedYear = d3.select("#selYear").property("value")
-
     //Get teams from respective year
     let teams = Object.keys(data[parseInt(selectedYear) - 2011][selectedYear])
 
@@ -32,14 +31,21 @@ d3.json("/static/data/seasons.json").then((data) => {
     }
 
   }
-  // function getColors(positions) {
-  //   let colors = []
-  //   for(const position in positions){
-  //     if(position in ["QB", "WR", "RB", "TE", "OL", "C"])
-  //   }
+  function getColors(positions) {
+    let colors = []
+    for(const position of positions){
+      if(["QB", "WR", "RB", "TE", "OL", "C", "FB", "G"].includes(position)){
+        console.log(position)
+        colors.push("blue")
+      }else if (["DL", "DT", "DE", "OLB", "LB", "MLB", "CB", "S", "LT", "RT", "ILB", "FS", "LS", "RS"].includes(position)){
+        colors.push("red")
+      }else{
+        colors.push("green")
+      }
+    }
 
-  //   return colors;
-  // }
+    return colors;
+  }
   function init(){
     let selYear="", selTeam = "";
     selYear = d3.select("#selYear").property("value")
@@ -56,12 +62,17 @@ d3.json("/static/data/seasons.json").then((data) => {
       labels: mapName,
       type: 'pie',
       hole: .3,
-      title: selTeam,
+      title: `<b>${selTeam}</b>`,
       hovertemplate: 'Player Name: %{label} <br>Cap Hit: \$%{value} <br>Percentage: %{percent} <br>Position: %{customdata[0]}<extra></extra>',
       textposition: "inside",
       texttemplate: "%{percent}",
       showlegend: true,
-      customdata: positions
+      customdata: positions,
+      marker: {
+
+        colors: getColors(positions)
+    
+      },
     }];
     let layout = {
       height: 700,
