@@ -40,17 +40,23 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
               <div class="navbar-nav">
-                <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Splits by Year</a>
-                <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Wins</a>
+                <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Distribution</a>
+                <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Win/Loss Records</a>
                 <a class="nav-link" href="{{ url_for('analysis') }}">Analysis and Conclusion</a>
                 <a class="nav-link" href="{{ url_for('future') }}">NFL's Future</a>
             </div>
           </div>
         </div>
       </nav>
-    <div class="container mt-4">
-        <h1>Team Analysis over Years</h1>
-
+      <div class="section" style="text-align: left; margin: 20px;">
+        <p>
+          <h2>Yearly Team Analysis</h2>
+          <p>Select a start and end year and select your team(s). Click the "Update Charts" button and you'll be presented with their salary data, their regular season win/loss record, and if they made it to the post season.</p>
+        </p>
+  
+  
+      <div class="container mt-4">
+        <p>
         <label for="startYearDropdown">Select Start Year:</label>
         <select id="startYearDropdown">
         </select>
@@ -60,7 +66,8 @@
         </select>
 
         <div id="teamSelectDiv">
-          <h3>Select Teams:</h3>
+          <p>
+          <h3>Select Team(s):</h3>
           <form id="teamSelectForm">
               <table>
                   <tr>
@@ -106,11 +113,10 @@
               </table>
           </form>
       </div>
-
+        <p>
+        </p>
         <button id="updateButtonId">Update Charts</button>
-       
-
-
+        </p>
         <!-- Here are the containers for the Highcharts visualizations -->
         <div id="superbowlInfo">
             <h2>Superbowl Winners:</h2> 
