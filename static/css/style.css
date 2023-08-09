@@ -1,3 +1,17 @@
+/* Custom CSS */
+.navbar-custom {
+  background-color: rgb(0, 0, 0); 
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand { /* Include .navbar-brand in the rule */
+  color: rgb(231, 231, 231); /* Set the font color to white */
+}
+
+/* .navbar-custom .nav-link:hover {
+  background-color: #8d8d8d;
+} */
+
 ul.navBar {
   list-style-type: none;
   margin: 0;
@@ -32,7 +46,7 @@ li.navItem a:hover {
 }
 
 body {
-  background-color: #1b630b;
+  background-color: #52a3b4;
 }
 
 .image {
@@ -42,7 +56,7 @@ body {
   background-repeat: no-repeat;
   height: 16vw;
   opacity: 85%;
-  box-shadow: inset 10px 0px 5px -4px seashell;
+  box-shadow: inset 10px 0px 5px -4px rgb(73, 155, 171);
 }
 
 .column {
@@ -64,3 +78,4 @@ body {
 .main {
   margin: 3rem 8rem;
 }
+
