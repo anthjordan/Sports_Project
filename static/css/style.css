@@ -9,7 +9,8 @@
 }
 
 .navbar-custom .nav-link:hover {
-  background-color: #8d8d8d;
+  background-color: #52a3b4;
+  border-radius: 5px;
 }
 
 ul.navBar {

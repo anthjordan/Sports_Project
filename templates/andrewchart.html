@@ -47,8 +47,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Splits by Year</a>
-            <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Wins</a>
+            <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Distribution</a>
+            <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Win/Loss Records</a>
             <a class="nav-link" href="{{ url_for('analysis') }}">Analysis and Conclusion</a>
             <a class="nav-link" href="{{ url_for('future') }}">NFL's Future</a>
           </div>
@@ -56,11 +56,12 @@
       </div>
     </nav>
   <div>
-  <div class="section" style="text-align: left;">
-    <p>
-    <h2>Directions:</h2>
-    <p>Choose a year and team in the dropdown menus to see a pie chart of their salary cap distribution, their regular season win/loss record, and if they made it to the post season.</p>
-</div>
+    <div class="section" style="text-align: left; margin: 20px;">
+      <p>
+        <h2>Yearly Salary Cap Distribution</h2>
+        <p>Choose a year and team in the dropdown menus to see a pie chart of their salary cap distribution for that year.</p>
+      </p>
+    </div>
 
 <div class="main row" style="background-color: seashell;">
     <div class = "column" style="flex:34%;padding:1rem 1rem;">
