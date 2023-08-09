@@ -8,9 +8,9 @@
   color: rgb(231, 231, 231); /* Set the font color to white */
 }
 
-/* .navbar-custom .nav-link:hover {
+.navbar-custom .nav-link:hover {
   background-color: #8d8d8d;
-} */
+}
 
 ul.navBar {
   list-style-type: none;
