@@ -5,14 +5,11 @@ d3.json("/static/data/seasons.json").then((data) => {
 
     // Event listeners for dropdown changes
     d3.select("#startYearDropdown").on("change", function() {
-      let selectedYear = d3.select(this).property("value");
-      populateTeamsForYear(data, selectedYear);
+        let selectedYear = d3.select(this).property("value");
+        populateTeamsForYear(data, selectedYear);
     });
     
-    d3.select("#teamSelect").on("change", () => {
-      updateVisualizations();
-    });
-
+    d3.select("#teamSelect").on("change", updateVisualizations);
     document.querySelector("#updateButtonId").addEventListener("click", updateVisualizations);
 
     function populateYearDropdowns(data) {
@@ -45,40 +42,61 @@ d3.json("/static/data/seasons.json").then((data) => {
         populateTeamsForYear(data, initialYear);
         updateVisualizations();
     }
+    
 
     function updateVisualizations() {
         const selectedStartYear = parseInt(d3.select("#startYearDropdown").property("value"));
         const selectedEndYear = parseInt(d3.select("#endYearDropdown").property("value"));
-        
         const selectedTeams = Array.from(document.querySelectorAll("#teamSelectForm input[type='checkbox']:checked")).map(checkbox => checkbox.value);
         
         const teamsData = {};
-        
+        const superbowlWinners = [];
+
         for (let team of selectedTeams) {
             teamsData[team] = {
                 salaries: [],
                 wins: [],
                 losses: [],
-                playoffs: []
+                winRates: [],
+                playoffWins: [],
+                playoffLosses: [],
+                playoffWinRates: []
             };
             for (let i = selectedStartYear; i <= selectedEndYear; i++) {
+                const yearData = data[i - 2011][i];
+            
+                for (let team in yearData) {
+                    if (yearData[team].superbowl_winner && yearData[team].superbowl_winner === team) {
+                        superbowlWinners.push(`${team} (${i})`);
+                    }
+                }
+            }
+            for (let i = selectedStartYear; i <= selectedEndYear; i++) {
                 const yearData = data[i - 2011][i][team];
-    
-                // Summing up salaries for the year
                 const totalSalary = yearData['players'].reduce((sum, player) => sum + player['cap_hit'], 0);
-                teamsData[team].salaries.push(totalSalary);
                 
-                // Wins and Losses
+                teamsData[team].salaries.push(totalSalary);
                 teamsData[team].wins.push(yearData['win_loss'].win);
                 teamsData[team].losses.push(yearData['win_loss'].loss);
                 
-                // Checking for playoff data and converting to binary (0 or 1)
-                teamsData[team].playoffs.push(yearData['playoff_win_loss'].win ? 1 : 0);
+                let winRate = (yearData['win_loss'].win / (yearData['win_loss'].win + yearData['win_loss'].loss)) * 100;
+                teamsData[team].winRates.push(winRate.toFixed(2));
+                
+                let playoffWins = yearData['playoff_win_loss'].win || 0;
+                let playoffLosses = yearData['playoff_win_loss'].loss || 0;
+                let playoffWinRate = (playoffWins / (playoffWins + playoffLosses)) * 100;
+                
+                teamsData[team].playoffWins.push(playoffWins);
+                teamsData[team].playoffLosses.push(playoffLosses);
+                teamsData[team].playoffWinRates.push(playoffWinRate.toFixed(2));
+                
+                
             }
         }
         
-        // Create charts
-    
+        // Update Superbowl information on the page
+        document.querySelector('#superbowlInfo').textContent = `Superbowl Winners: ${superbowlWinners.join(", ")}`;
+        
         // Salary Chart
         Highcharts.chart('salaryChart', {
             title: { text: 'Yearly Salaries' },
@@ -86,28 +104,67 @@ d3.json("/static/data/seasons.json").then((data) => {
             yAxis: { title: { text: 'Salary' } },
             series: selectedTeams.map(team => ({ name: team, data: teamsData[team].salaries }))
         });
-    
-        // Win-Loss Chart (Bar chart)
+        
+        //Win-Loss Chart with win rates
         Highcharts.chart('winLossChart', {
-            chart: { type: 'bar' },
-            title: { text: 'Yearly Wins and Losses' },
+            chart: { type: 'column' },
+            title: { text: 'Yearly Wins, Losses, and Win Rate' },
             xAxis: { categories: Array.from({length: selectedEndYear - selectedStartYear + 1}, (_, i) => i + selectedStartYear) },
-            yAxis: { title: { text: 'Matches' } },
+            yAxis: [{ title: { text: 'Matches' } }, { title: { text: 'Win Rate (%)' }, opposite: true }],
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
             series: [].concat.apply([], selectedTeams.map(team => [
-                { name: `${team} Wins`, data: teamsData[team].wins },
-                { name: `${team} Losses`, data: teamsData[team].losses }
+                { 
+                    name: `${team} Wins`, 
+                    data: teamsData[team].wins,
+                    stack: team
+                },
+                { 
+                    name: `${team} Losses`, 
+                    data: teamsData[team].losses,
+                    stack: team
+                },
+                { 
+                    name: `${team} Win Rate`, 
+                    type: 'spline', 
+                    yAxis: 1, 
+                    data: teamsData[team].winRates.map(Number) 
+                }
             ]))
         });
-    
-        // Playoff Chart (Bar chart)
+        // Playoff Chart with Wins, Losses, and Win Rate
         Highcharts.chart('playoffChart', {
-            chart: { type: 'bar' },
-            title: { text: 'Playoff Appearances' },
+            chart: { type: 'column' },
+            title: { text: 'Playoff Wins, Losses, and Win Rate' },
             xAxis: { categories: Array.from({length: selectedEndYear - selectedStartYear + 1}, (_, i) => i + selectedStartYear) },
-            yAxis: { title: { text: 'Playoff Appearance' } },
-            series: selectedTeams.map(team => ({ name: team, data: teamsData[team].playoffs }))
+            yAxis: [{ title: { text: 'Matches' } }, { title: { text: 'Win Rate (%)' }, opposite: true }],
+            plotOptions: {
+                series: {
+                    stacking: 'normal'
+                }
+            },
+            series: [].concat.apply([], selectedTeams.map(team => [
+                { 
+                    name: `${team} Playoff Wins`, 
+                    data: teamsData[team].playoffWins,
+                    stack: team
+                },
+                { 
+                    name: `${team} Playoff Losses`, 
+                    data: teamsData[team].playoffLosses,
+                    stack: team
+                },
+                { 
+                    name: `${team} Playoff Win Rate`, 
+                    type: 'spline', 
+                    yAxis: 1, 
+                    data: teamsData[team].playoffWinRates.map(Number) 
+                }
+            ]))
         });
-    
         // Combination of Salary and Wins (bar + line)
         Highcharts.chart('salaryWinsComboChart', {
             title: { text: 'Salary and Wins Over the Years' },
@@ -123,6 +180,7 @@ d3.json("/static/data/seasons.json").then((data) => {
                 { name: `${team} Wins`, type: 'spline', yAxis: 1, data: teamsData[team].wins }
             ]))
         });
+        // Additional charts can be placed here, based on requirements.
     }
     
 });

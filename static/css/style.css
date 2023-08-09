@@ -64,3 +64,19 @@ body {
 .main {
   margin: 3rem 8rem;
 }
+#superbowlInfo {
+  background-color: white;  /* White background */
+  padding: 20px;            /* Space inside the box */
+  max-width: 600px;         /* Maximum width to ensure responsiveness */
+  margin: 50px auto;        /* Vertically spaced and centered horizontally */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* subtle shadow for 3D effect */
+  border-radius: 10px;      /* Rounded corners */
+  text-align: center;       /* Center the text/items inside */
+}
+
+.superbowlWinner {  /* Each dynamically added winner will have this class */
+  border: 1px solid #e0e0e0; /* subtle border */
+  padding: 8px;     /* space inside each winner box */
+  margin: 5px 0;    /* space between winners */
+  display: inline-block; /* allows for horizontal centering inside #superbowlInfo */
+}
