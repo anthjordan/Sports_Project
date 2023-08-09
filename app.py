@@ -7,12 +7,10 @@ import json
 #################################################
 # Database Setup
 #################################################
-
 url = 'mongodb+srv://sportsproject:nfldata2023@cluster0.kq90kop.mongodb.net/?retryWrites=true&w=majority'
 
 client = MongoClient(url, server_api=ServerApi('1'))
 # Save reference to the table
-client.list_database_names()
 
 collection = client['sports_project']['nfl_seasons']
 
