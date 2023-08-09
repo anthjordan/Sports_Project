@@ -23,27 +23,40 @@
 </head>
 
 <body>
-    <div class="row" style="background-color: seashell;">
-        <div class="column col-lg-7 col-xs-12" style="">
-            <div class="textbox" style="text-align: center;">
+    <div class="row" style="background-color: rgb(0, 0, 0);">
+        <div class="container">
+          <div class="column" style = "text-align: center; color: rgb(231, 231, 231);">
                 <h1>Sports Project</h1>
-
-                <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
-            </div>
+          <p>Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
         </div>
-        <div class="column image col-lg-5 col-xs-12" style=""></div>
-    </div>
-    <ul class="navBar">
-        <li><a href="{{ url_for('home') }}">Home</a></li>
-        <li><a href="{{ url_for('salaries') }}">Team Salaries by Year</a></li>
-        <li><a href="{{ url_for('spending_success') }}">Team Spending and Wins by Year</a></li>
-        <li><a href="{{ url_for('analysis') }}">Analysis and Conclusions</a></li>
-        <li><a href="{{ url_for('future') }}">The NFL's Newest Millionaires</a></li>
-    </ul>
-
-    <div class="container mt-4">
-        <h1>Team Analysis over Years</h1>
-
+      </div>
+      <div class="column image col-lg-12" style=""></div>
+    </div> 
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+              <div class="navbar-nav">
+                <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Distribution</a>
+                <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Win/Loss Records</a>
+                <a class="nav-link" href="{{ url_for('analysis') }}">Analysis and Conclusion</a>
+                <a class="nav-link" href="{{ url_for('future') }}">NFL's Future</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="section" style="text-align: left; margin: 20px;">
+        <p>
+          <h2>Yearly Team Analysis</h2>
+          <p>Select a start and end year and select your team(s). Click the "Update Charts" button and you'll be presented with their salary data, their regular season win/loss record, and if they made it to the post season.</p>
+        </p>
+  
+  
+      <div class="container mt-4">
+        <p>
         <label for="startYearDropdown">Select Start Year:</label>
         <select id="startYearDropdown">
         </select>
@@ -53,7 +66,8 @@
         </select>
 
         <div id="teamSelectDiv">
-          <h3>Select Teams:</h3>
+          <p>
+          <h3>Select Team(s):</h3>
           <form id="teamSelectForm">
               <table>
                   <tr>
@@ -99,11 +113,10 @@
               </table>
           </form>
       </div>
-
+        <p>
+        </p>
         <button id="updateButtonId">Update Charts</button>
-       
-
-
+        </p>
         <!-- Here are the containers for the Highcharts visualizations -->
         <div id="superbowlInfo">
             <h2>Superbowl Winners:</h2> 

@@ -29,34 +29,44 @@
   <title>Sports Project</title>
 </head>
 
-<body>
-  <div class="row" style="background-color: seashell;">
-    <div class="column col-lg-7 col-xs-12" style="">
-      <div class="textbox" style = "text-align: center;">
-        <h1>Sports Project</h1>
 
-        <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+<body>
+  <div class="row" style="background-color: rgb(0, 0, 0);">
+    <div class="container">
+      <div class="column" style = "text-align: center; color: rgb(231, 231, 231);">
+        <h1>Sports Project</h1>
+        <p>Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
       </div>
     </div>
-    <div class="column image col-lg-5 col-xs-12" style=""></div>
+    <div class="column image col-lg-12" style=""></div>
   </div> 
-  <ul class="navBar">
-    <li><a href="{{ url_for('home') }}">Home</a></li>
-    <li><a href="{{ url_for('salaries') }}">Team Salaries by Year</a></li>
-    <li><a href="{{ url_for('spending_success') }}">Team Spending and Wins by Year</a></li>
-    <li><a href="{{ url_for('analysis') }}">Analysis and Conclusions</a></li>
-    <li><a href="{{ url_for('future') }}">The NFL's Newest Millionaires</a></li>
-  </ul> 
-  
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Distribution</a>
+          <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Win/Loss Records</a>
+          <a class="nav-link" href="{{ url_for('analysis') }}">Analysis and Conclusion</a>
+          <a class="nav-link" href="{{ url_for('future') }}">NFL's Future</a>
+        </div>
+      </div>
+    </div>
+  </nav>
   <div>
-  <div class="section" style="text-align: left;">
+  <!-- <div class="container"> </> -->
+  <div class="section" style="text-align: left; margin: 20px;">
+    </p>
     <h1>About this project</h1>
     <p>This project explores the correlation of NFL (National Football League) team success based on how they choose to allocate their yearly player budget, aka salary cap.</p>
     <p>Will a team be more successful by having 1 or 2 very highly paid, highly skilled players on the roster taking up large portions of salary cap?</p>
     <p>Is it better to try and spread salary cap more evenly among players?</p>
     <p>What about offense and defense...? Is it better to invest more heavily in one over the other?</p>
     <p>Start answering these question by clicking on ______ above.</p>
-</div>
+  </div>
 
   <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
   <script type="text/javascript" src="{{url_for('static', filename='js/events.js')}}"></script>

@@ -30,30 +30,124 @@
 </head>
 
 <body>
-    <div class="row" style="background-color: seashell;">
-      <div class="column col-lg-7 col-xs-12" style="">
-        <div class="textbox" style = "text-align: center;">
-          <h1>Sports Project</h1>
-  
-          <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+  <div class="row" style="background-color: rgb(0, 0, 0);">
+    <div class="container">
+      <div class="column" style = "text-align: center; color: rgb(231, 231, 231);">
+        <h1>Sports Project</h1>
+        <p>Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+      </div>
+    </div>
+    <div class="column image col-lg-12" style=""></div>
+  </div> 
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Distribution</a>
+            <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Win/Loss Records</a>
+            <a class="nav-link" href="{{ url_for('analysis') }}">Analysis and Conclusion</a>
+            <a class="nav-link" href="{{ url_for('future') }}">NFL's Future</a>
+          </div>
         </div>
       </div>
-      <div class="column image col-lg-5 col-xs-12" style=""></div>
-    </div> 
-    <ul class="navBar">
-      <li><a href="{{ url_for('home') }}">Home</a></li>
-      <li><a href="{{ url_for('salaries') }}">Team Salaries by Year</a></li>
-      <li><a href="{{ url_for('spending_success') }}">Team Spending and Wins by Year</a></li>
-      <li><a href="{{ url_for('analysis') }}">Analysis and Conclusions</a></li>
-      <li><a href="{{ url_for('future') }}">The NFL's Newest Millionaires</a></li>
-    </ul> 
-
+    </nav>
   <div>
-  <div class="section" style="text-align: left;">
-    <h2>Data and Technologies Used</h2>
-    <p>Website Scraped: https://www.spotrac.com/nfl/cap/</p>
-    <p>Tech: Flask, Javascript, HTML, CSS, MongoDB</p>
-</div>
+    <div class="container">
+      <div>
+        <h1>Data Analysis</h1>
+        <p>A deep dive into some factors which affect success in the NFL</p>
+      </div>
+      <div>
+        <h2>Most Expensive Player</h2>
+        <p>The first question we asked was whether the most expensive player on a roster affects how often a team wins. It would seem as though truly elite players command higher salaries. So paying up for elite players may lead to more wins. On the other hand, the more you pay one player - usually the Quarterback - the less you have to spread amongst the rest of the roster. So maybe paying LESS for your highest player yeilds more wins.</p>
+        <p><b>Lets take a look:</b></p>
+      </div>
+      <div class="row">
+        <div class="col  my-auto">
+          <p><b>
+            In the regular season, it appears as though spending more on your best player does, in fact, yeild more wins. There seems to be a possitive connection between wins and the amount a team spends on its best player.
+          </b></p>
+        </div>
+        <div class="col">
+          <img src="{{ url_for('static', filename='img/Highest_Paid_to_wins.png') }}" alt="Cap Hit For most Expensice player">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <img src="{{ url_for('static', filename='img/fig_highest_paid_to_playoff_wins.png') }}" alt="Cap Hit For most Expensice player">
+        </div>
+        <div class="col my-auto">
+          <p><b>
+            In the playoffs, the chart looks very different. Here, it looks as though wins increase with the salary of your highest paid player - to a point. But after your highest paid player earns more than 13% of the salary cap, a team experiences diminishing returns.<br><br>
+            <b>In the 12 seasons worth of data we have, we see that, when a player earns more than 13% of the salary cap, his team won the superbowl only once (2022 KC Chiefs - Pat Mahomes). If the 49 teams who've paid their highest player more than 13%, we see only 22 wins and 1 superbowl. </b>
+          </b></p>
+        </div>
+      </div>
+      <div class="mt-4">
+        <h2>Depth of Talent</h2>
+        <p>Ok, so if paying your best player has an upper limit of success at 13% of the cap, What about teams that spread their money more equitably? Do teams that give MORE players a higher percentage of the salary cap prove more successful? </p>
+        <p><b>Lets take a look:</b></p>
+        </p>
+      </div> 
+      <div class="row">
+        <div class="col my-auto">
+          <p>The average NFL team has 11 players making 2% of the salary cap (just under 5,000,000 in 2022). So for this analysis, we'll call teams with more players making more than 2% of the team camp "deeper" and teams paying fewer players 2% of the cap "shallower".
+          </div>
+        <div class="col">
+          <img src="{{ url_for('static', filename='img/fig_wins_to_roster_depth.png') }}" alt="Cap Hit For most Expensice player">
+        </div>
+      </div>
+      <div class="mt-4">
+        <h2>Spending by Offense/Defense</h2>
+        <p>What about for each side of the ball? Does spending on offense translate to more wins? Or does the old addage "Defense Wins Championships" hold true?</p>
+        <p><b>Lets take a look:</b></p>
+        <p><b>Spending money on offense OR defense contributes to wins. You can see that there is a positive correlation between money spent on offense and defense to wins. However, the line for offensive spending is steeper, indicating that you get more "bang" for your buck by spending on the offensive side of the ball.</b></p>
+        </p>
+      </div> 
+      <div class="row">
+        <div class="col col-md-5">
+          <img src="{{ url_for('static', filename='img/fig_offense_spending_to_wins.png') }}" alt="Cap Hit For most Expensice player">
+          </div>
+        <div class="col col-md-5">
+          <img src="{{ url_for('static', filename='img/fig_defense_spending_to_wins.png') }}" alt="Cap Hit For most Expensice player">
+        </div>
+      </div>
+      <div class="mt-4">
+        <h2>What About In Playoffs?</h2>
+        <p>Does spending money on offense translate to wins in the playoffs?</p>
+        <p><b>Lets take a look:</b></p>
+        <p><b>One of the most surprising findings of this study is the inefficicency in defense spending come playoff time. At best there is no correlation between defensive spending and playoff wins. And it's possible that spending more money on defense may hurt a teams chances of winning addiional playoff games. Teams that invest only 20-25% of their budgets fair just as well in the playoffs as teams spending much more!</b></p>
+        </p>
+      </div> 
+      <div class="row">
+        <div class="col col-md-5">
+          <img src="{{ url_for('static', filename='img/fig_offense_spending_to_playoff_wins.png') }}" alt="Cap Hit For most Expensice player">
+          </div>
+        <div class="col col-md-5">
+          <img src="{{ url_for('static', filename='img/fig_defense_spending_to_playoff_wins.png') }}" alt="Cap Hit For most Expensice player">
+        </div>
+      </div>
+      <div class="mt-4">
+        <h2>Positional Spending</h2>
+        <p>Does spending by position affect a teams ability to win or lose?</p>
+        <p><b>Lets take a look:</b></p>
+        <p><b>There can be no definitive answer on "how to spend money" on a positional level with out further research. But what these charts do tell us is how teams are spending their money.</b></p>
+        <p><b>Its clear from the chart that teams are devaluing running backs, with most of those players earning the least % of the cap. Then, on a per/player basis, Receivers earn more than running backs but less than Offensive Linemen. And Quarterbacks, not surprisingly, make the most.</b></p>
+      </p>
+      </div> 
+      <div class="row">
+        <div class="col col-md-5">
+          <img src="{{ url_for('static', filename='img/wins_per_position_per_player_chart_offense.png') }}" alt="Cap Hit For most Expensice player">
+          </div>
+        <div class="col col-md-5">
+          <img src="{{ url_for('static', filename='img/wins_per_position_per_player_chart.png') }}" alt="Cap Hit For most Expensice player">
+        </div>
+      </div>
+    </div>
 
   <script type="text/javascript" src="{{url_for('static', filename='js/app.js')}}"></script>
   <script type="text/javascript" src="{{url_for('static', filename='js/events.js')}}"></script>

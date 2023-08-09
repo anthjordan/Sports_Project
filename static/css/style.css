@@ -1,3 +1,18 @@
+/* Custom CSS */
+.navbar-custom {
+  background-color: rgb(0, 0, 0); 
+}
+
+.navbar-custom .nav-link,
+.navbar-custom .navbar-brand { /* Include .navbar-brand in the rule */
+  color: rgb(231, 231, 231); /* Set the font color to white */
+}
+
+.navbar-custom .nav-link:hover {
+  background-color: #52a3b4;
+  border-radius: 5px;
+}
+
 ul.navBar {
   list-style-type: none;
   margin: 0;
@@ -32,7 +47,7 @@ li.navItem a:hover {
 }
 
 body {
-  background-color: #1b630b;
+  background-color: #52a3b4;
 }
 
 .image {
@@ -42,7 +57,7 @@ body {
   background-repeat: no-repeat;
   height: 16vw;
   opacity: 85%;
-  box-shadow: inset 10px 0px 5px -4px seashell;
+  box-shadow: inset 10px 0px 5px -4px rgb(73, 155, 171);
 }
 
 .column {
@@ -64,6 +79,9 @@ body {
 .main {
   margin: 3rem 8rem;
 }
+<<<<<<< HEAD
+
+=======
 #superbowlInfo {
   background-color: white;  /* White background */
   padding: 20px;            /* Space inside the box */
@@ -80,3 +98,4 @@ body {
   margin: 5px 0;    /* space between winners */
   display: inline-block; /* allows for horizontal centering inside #superbowlInfo */
 }
+>>>>>>> main
