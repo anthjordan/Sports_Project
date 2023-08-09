@@ -50,7 +50,7 @@ d3.json("/static/data/seasons.json").then((data) => {
         const selectedTeams = Array.from(document.querySelectorAll("#teamSelectForm input[type='checkbox']:checked")).map(checkbox => checkbox.value);
         
         const teamsData = {};
-        const superbowlWinners = [];
+        const superbowlWinnersSet = new Set(); 
 
         for (let team of selectedTeams) {
             teamsData[team] = {
@@ -67,7 +67,7 @@ d3.json("/static/data/seasons.json").then((data) => {
             
                 for (let team in yearData) {
                     if (yearData[team].superbowl_winner && yearData[team].superbowl_winner === team) {
-                        superbowlWinners.push(`${team} (${i})`);
+                        superbowlWinnersSet.add(`${team} (${i})`); // Add to the Set. Duplicates will be ignored
                     }
                 }
             }
@@ -94,6 +94,7 @@ d3.json("/static/data/seasons.json").then((data) => {
         }
         
         // Update Superbowl information on the page
+        const superbowlWinners = [...superbowlWinnersSet];
         document.querySelector('#superbowlInfo').textContent = `Superbowl Winners: ${superbowlWinners.join(", ")}`;
         
         // Salary Chart
