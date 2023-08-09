@@ -84,11 +84,10 @@ d3.json("/static/data/seasons.json").then((data) => {
                 
                 let playoffWins = yearData['playoff_win_loss'].win || 0;
                 let playoffLosses = yearData['playoff_win_loss'].loss || 0;
-                let playoffWinRate = (playoffWins / (playoffWins + playoffLosses)) * 100;
+                
                 
                 teamsData[team].playoffWins.push(playoffWins);
                 teamsData[team].playoffLosses.push(playoffLosses);
-                teamsData[team].playoffWinRates.push(playoffWinRate.toFixed(2));
                 
                 
             }
@@ -138,9 +137,9 @@ d3.json("/static/data/seasons.json").then((data) => {
         // Playoff Chart with Wins, Losses, and Win Rate
         Highcharts.chart('playoffChart', {
             chart: { type: 'column' },
-            title: { text: 'Playoff Wins, Losses, and Win Rate' },
+            title: { text: 'Playoff Wins, Losses' },
             xAxis: { categories: Array.from({length: selectedEndYear - selectedStartYear + 1}, (_, i) => i + selectedStartYear) },
-            yAxis: [{ title: { text: 'Matches' } }, { title: { text: 'Win Rate (%)' }, opposite: true }],
+            yAxis: [{ title: { text: 'Matches' } }],
             plotOptions: {
                 series: {
                     stacking: 'normal'
@@ -156,13 +155,8 @@ d3.json("/static/data/seasons.json").then((data) => {
                     name: `${team} Playoff Losses`, 
                     data: teamsData[team].playoffLosses,
                     stack: team
-                },
-                { 
-                    name: `${team} Playoff Win Rate`, 
-                    type: 'spline', 
-                    yAxis: 1, 
-                    data: teamsData[team].playoffWinRates.map(Number) 
                 }
+        
             ]))
         });
         // Combination of Salary and Wins (bar + line)
