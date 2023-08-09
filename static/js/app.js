@@ -30,26 +30,46 @@ d3.json("/static/data/seasons.json").then((data) => {
       optionTeam.text(`${team}`)
       optionTeam.attr("value", `${team}`)
     }
-
+    
   }
-  // function getColors(positions) {
-  //   let colors = []
-  //   for(const position in positions){
-  //     if(position in ["QB", "WR", "RB", "TE", "OL", "C"])
-  //   }
+  function setRecords (mappedData){
+    let wins = mappedData['win_loss']
+    let playoffWin = mappedData["playoff_win_loss"]
+    let superBowlWinner = mappedData["superbowl_winner"]
+    d3.select("#teamrecord").text(`${wins["win"]} - ${wins["loss"]} - ${wins["tie"]}`)
+    d3.select('#playoffteamrecord').text(Object.keys(playoffWin).length !== 0 && playoffWin.constructor === Object ?
+     `${playoffWin["win"]} - ${playoffWin["loss"]} - ${playoffWin["tie"]}${superBowlWinner ? `, Super Bowl Winner`: ""}` : `Team did not make the playoffs.`)
+  }
+  function getColorsAndId(positions) {
+    let group = []
+    let colors =[]
+    for(const position of positions){
+      if(["QB", "WR", "RB", "TE", "OL", "C", "FB", "G", "T"].includes(position)){
+        colors.push("blue")
+        group.push("Offensive Team")
+      }else if (["DL", "DT", "DE", "OLB", "LB", "MLB", "CB", "S", "LT", "RT", "ILB", "FS", "LS", "RS", "SS"].includes(position)){
+        colors.push("red")
+        group.push("Defensive Team")
+      }else{
+        colors.push("green")
+        group.push("Special Teams")
+      }
+    }
 
-  //   return colors;
-  // }
+    return [colors, group];
+  }
+
   function init(){
     let selYear="", selTeam = "";
     selYear = d3.select("#selYear").property("value")
     selTeam = d3.select("#selTeam").property("value")
-    let mapSalary = data[parseInt(selYear) - 2011][selYear][selTeam]['players'].map((item) => item['cap_hit'])
-    let mapName = data[parseInt(selYear) - 2011][selYear][selTeam]['players'].map((item) => item['name'])
-    let positions = data[parseInt(selYear) - 2011][selYear][selTeam]['players'].map((item) => item['position'])
-    
-    console.log(mapName, positions)
-    let byPosition = [...new Set(positions)]
+    let parseYear = parseInt(selYear) - 2011
+    let mappedData= data[parseYear][selYear][selTeam]
+    let mapSalary = mappedData['players'].map((item) => item['cap_hit'])
+    let mapName = mappedData['players'].map((item) => item['name'])
+    let positions = mappedData['players'].map((item) => item['position'])
+    let group = getColorsAndId(positions)
+    setRecords(mappedData)
 
     let toShow = [{
       values: mapSalary,
@@ -57,20 +77,32 @@ d3.json("/static/data/seasons.json").then((data) => {
       type: 'pie',
       hole: .3,
       title: selTeam,
-      hovertemplate: 'Player Name: %{label} <br>Cap Hit: \$%{value} <br>Percentage: %{percent} <br>Position: %{customdata[0]}<extra></extra>',
+      hovertemplate: 'Player Name: %{label} <br>Cap Hit: \$%{value} <br>Percentage: %{percent} <br>Position: %{customdata[0]} <br>Team: %{id}<extra></extra>',
       textposition: "inside",
       texttemplate: "%{percent}",
       showlegend: true,
-      customdata: positions
+      customdata: positions,
+      ids: group[1],
+      marker: {
+
+        colors: group[0],
+        line: {
+          color: "black",
+          width: 0.3
+        }
+    
+      },
     }];
     let layout = {
-      height: 700,
-      width: 950,
+      autosize: true,
       legend : {
         "title": {
           "text": "<b>Player Names: (Highest to Lowest Cap Hit)</b>"
-        }
-      }
+        },
+        "itemclick": false,
+        "itemdoubleclick":false,
+        
+      },
     };
     
     Plotly.newPlot("chart", toShow, layout, {responsive: true});

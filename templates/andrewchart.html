@@ -55,24 +55,32 @@
         </div>
       </div>
     </nav>
-  <div>
-    <div class="section" style="text-align: left; margin: 20px;">
-      <p>
-        <h2>Yearly Salary Cap Distribution</h2>
-        <p>Choose a year and team in the dropdown menus to see a pie chart of their salary cap distribution for that year.</p>
-      </p>
+    
+    <div class="main row" style="background-color: seashell;">
+      <div class="section" style="text-align: center;">
+        <p>
+          <h2>Yearly Salary Cap Distribution</h2>
+          <p>Choose a year and team in the dropdown menus to see a pie chart of their salary cap distribution for that year.</p>
+        </p>
+      </div>
+    <div class = "column col-sm-4" style="padding:1rem 1rem;">
+      <div class = "section" style="text-align: center;">
+        <label for="selYear"><b>Select a Year</b> : </label>
+        <select id="selYear">
+        </select>
+        <label for="selTeam"><b>Select a Team</b> : </label>
+        <select id="selTeam">
+        </select>
+        <div id= "records" class="section" style="margin: 1rem;">
+          <p><b>Record (W-L-T) </b> : </p>
+          <p id = "teamrecord"></p>
+          <p><b>Playoff Record (W-L-T) </b> : </p>
+          <p id = "playoffteamrecord"></p>
+        </div>
+      </div>
     </div>
-
-<div class="main row" style="background-color: seashell;">
-    <div class = "column" style="flex:34%;padding:1rem 1rem;">
-      <label for="selYear">Select a Year: </label>
-      <select id="selYear">
-      </select>
-      <label for="selTeam">Select a Team: </label>
-      <select id="selTeam">
-      </select>
-    </div>
-    <div id="chart" class = "column" style="flex:66%;padding:1rem 1rem;">
+    <div class = "column col-sm-8" style="height:700px;padding:1rem 1rem;">
+      <div id="chart" style="height: 100%;"></div>
     </div>
   </div>
 
