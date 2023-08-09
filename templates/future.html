@@ -30,26 +30,24 @@
 </head>
 
 <body>
-  <div class="row" style="background-color: seashell;">
-    <div class="column col-lg-7 col-xs-12" style="">
-      <div class="textbox" style = "text-align: center;">
+  <div class="row" style="background-color: rgb(0, 0, 0);">
+    <div class="container">
+      <div class="column" style = "text-align: center; color: rgb(231, 231, 231);">
         <h1>Sports Project</h1>
-
-        <p>By: Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
+        <p>Binh Do, Dan Dreger, Anthony Jordan, Brandon Macchi, Andrew Oceguera</p>
       </div>
     </div>
-    <div class="column image col-lg-5 col-xs-12" style=""></div>
+    <div class="column image col-lg-12" style=""></div>
   </div> 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <a class="navbar-brand" href="{{ url_for('home') }}">Home</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="{{ url_for('home') }}">Home</a>
-          <a class="nav-link" href="{{ url_for('salaries') }}">Salaries by Year</a>
+          <a class="nav-link" href="{{ url_for('salaries') }}">Salary Cap Splits by Year</a>
           <a class="nav-link" href="{{ url_for('spending_success') }}">Spending and Wins</a>
           <a class="nav-link" href="{{ url_for('analysis') }}">Analysis and Conclusion</a>
           <a class="nav-link" href="{{ url_for('future') }}">NFL's Future</a>
