@@ -4,6 +4,7 @@ from flask import Flask, jsonify, render_template, send_from_directory
 from pymongo.server_api import ServerApi
 from bson.json_util import dumps
 import json
+from flask_cors import CORS
 #################################################
 # Database Setup
 #################################################
@@ -17,7 +18,7 @@ collection = client['sportsproject']['all_nfl_seasons']
 # Flask Setup
 #################################################
 app = Flask(__name__)
-
+CORS(app)
 
 #################################################
 # Flask Routes
