@@ -95,3 +95,7 @@ body {
   margin: 5px 0;    /* space between winners */
   display: inline-block; /* allows for horizontal centering inside #superbowlInfo */
 }
+
+ul.home {
+  padding-left: 40px;
+}
