@@ -40,23 +40,19 @@ d3.json("/static/data/seasons.json").then((data) => {
     d3.select('#playoffteamrecord').text(Object.keys(playoffWin).length !== 0 && playoffWin.constructor === Object ?
      `${playoffWin["win"]} - ${playoffWin["loss"]} - ${playoffWin["tie"]}${superBowlWinner ? `, Super Bowl Winner`: ""}` : `Team did not make the playoffs.`)
   }
-  function getColorsAndId(positions) {
+  function getId(positions) {
     let group = []
-    let colors =[]
     for(const position of positions){
       if(["QB", "WR", "RB", "TE", "OL", "C", "FB", "G", "T"].includes(position)){
-        colors.push("blue")
         group.push("Offensive Team")
       }else if (["DL", "DT", "DE", "OLB", "LB", "MLB", "CB", "S", "LT", "RT", "ILB", "FS", "LS", "RS", "SS"].includes(position)){
-        colors.push("red")
         group.push("Defensive Team")
       }else{
-        colors.push("green")
         group.push("Special Teams")
       }
     }
 
-    return [colors, group];
+    return group;
   }
 
   function init(){
@@ -68,7 +64,7 @@ d3.json("/static/data/seasons.json").then((data) => {
     let mapSalary = mappedData['players'].map((item) => item['cap_hit'])
     let mapName = mappedData['players'].map((item) => item['name'])
     let positions = mappedData['players'].map((item) => item['position'])
-    let group = getColorsAndId(positions)
+    let group = getId(positions)
     setRecords(mappedData)
 
     let toShow = [{
@@ -82,10 +78,9 @@ d3.json("/static/data/seasons.json").then((data) => {
       texttemplate: "%{percent}",
       showlegend: true,
       customdata: positions,
-      ids: group[1],
+      ids: group,
       marker: {
 
-        colors: group[0],
         line: {
           color: "black",
           width: 0.3

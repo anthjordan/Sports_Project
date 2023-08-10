@@ -7,12 +7,12 @@ import json
 #################################################
 # Database Setup
 #################################################
-url = 'mongodb+srv://sportsproject:nfldata2023@cluster0.kq90kop.mongodb.net/?retryWrites=true&w=majority'
+url = 'mongodb+srv://sportsproject14:nfldata2023@nfldata.zyj0uga.mongodb.net/?retryWrites=true&w=majority'
 
 client = MongoClient(url, server_api=ServerApi('1'))
 # Save reference to the table
 
-collection = client['sportsproject']['all_nfl_seasons']
+collection = client['sportsproject']['all_nfl_data']
 #################################################
 # Flask Setup
 #################################################

@@ -79,9 +79,6 @@ body {
 .main {
   margin: 3rem 8rem;
 }
-<<<<<<< HEAD
-
-=======
 #superbowlInfo {
   background-color: white;  /* White background */
   padding: 20px;            /* Space inside the box */
@@ -98,4 +95,3 @@ body {
   margin: 5px 0;    /* space between winners */
   display: inline-block; /* allows for horizontal centering inside #superbowlInfo */
 }
->>>>>>> main
